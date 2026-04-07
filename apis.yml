@@ -2,8 +2,7 @@ aid: cometapi
 url: >-
   https://raw.githubusercontent.com/api-evangelist/cometapi/refs/heads/main/apis.yml
 name: Cometapi
-tags:
-  - API
+tags: []
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
