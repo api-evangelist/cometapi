@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cometapi/refs/heads/main/json-schema/cometapi-chat-completion-schema.json",
+  "title": "CometAPI Chat Completion Response",
+  "description": "Schema for a /chat/completions response from CometAPI (OpenAI-compatible).",
+  "type": "object",
+  "required": ["id", "model", "choices"],
+  "properties": {
+    "id": { "type": "string" },
+    "object": {
+      "type": "string",
+      "const": "chat.completion"
+    },
+    "model": { "type": "string" },
+    "created": {
+      "type": "integer",
+      "description": "Unix timestamp."
+    },
+    "choices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "index": { "type": "integer" },
+          "message": {
+            "type": "object",
+            "properties": {
+              "role": { "type": "string" },
+              "content": { "type": "string" }
+            }
+          },
+          "finish_reason": { "type": "string" }
+        }
+      }
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "prompt_tokens": { "type": "integer" },
+        "completion_tokens": { "type": "integer" },
+        "total_tokens": { "type": "integer" }
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+# Naftiko capabilities profile for CometAPI.
+# Capabilities reflect the unified, OpenAI-compatible surface CometAPI exposes
+# over 500+ third-party models.
+provider: cometapi
+name: CometAPI
+description: >-
+  OpenAI-compatible aggregator API that routes to 500+ models across
+  text, embeddings, images, video, and audio under a single bearer-token
+  credential.
+capabilities:
+  - id: cometapi.chat.completions
+    name: Chat completion
+    description: Send a chat completion request and receive a single or streaming response.
+    api: cometapi:cometapi-unified-api
+    inputs:
+      - model
+      - messages
+      - temperature
+      - max_tokens
+      - stream
+    outputs:
+      - id
+      - choices
+      - usage
+
+  - id: cometapi.chat.tools
+    name: Tool-using chat completion
+    description: Chat completion with function/tool calling enabled.
+    api: cometapi:cometapi-unified-api
+    inputs:
+      - model
+      - messages
+      - tools
+      - tool_choice
+    outputs:
+      - choices
+      - tool_calls
+
+  - id: cometapi.embeddings.create
+    name: Create embedding
+    description: Generate embedding vectors for one or more text inputs.
+    api: cometapi:cometapi-unified-api
+    inputs:
+      - model
+      - input
+    outputs:
+      - data
+      - usage
+
+  - id: cometapi.images.generate
+    name: Generate image
+    description: Generate one or more images from a text prompt.
+    api: cometapi:cometapi-unified-api
+    inputs:
+      - model
+      - prompt
+      - size
+      - n
+      - style
+    outputs:
+      - data
+
+  - id: cometapi.videos.generate
+    name: Generate video
+    description: Submit an async text-to-video or image-to-video generation job.
+    api: cometapi:cometapi-unified-api
+    inputs:
+      - model
+      - prompt
+      - image
+      - duration
+    outputs:
+      - job_id
+
+  - id: cometapi.audio.speech
+    name: Synthesize speech
+    description: Synthesize speech audio from text using TTS models.
+    api: cometapi:cometapi-unified-api
+    inputs:
+      - model
+      - input
+      - voice
+      - response_format
+    outputs:
+      - audio
+
+  - id: cometapi.audio.transcribe
+    name: Transcribe audio
+    description: Transcribe an uploaded audio file to text.
+    api: cometapi:cometapi-unified-api
+    inputs:
+      - model
+      - file
+      - language
+    outputs:
+      - text
+
+  - id: cometapi.models.list
+    name: List models
+    description: Enumerate the models routable through CometAPI.
+    api: cometapi:cometapi-unified-api
+    inputs: []
+    outputs:
+      - data

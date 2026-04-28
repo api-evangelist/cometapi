@@ -1,0 +1,97 @@
+extends:
+  - spectral:oas
+
+# Spectral linting rules for CometAPI.
+# Tuned to api.cometapi.com/v1 conventions: OpenAI-compatible endpoints,
+# bearer-token auth, and a `model` routing field on every generative call.
+rules:
+  cometapi-info-contact:
+    description: API info must include a contact block.
+    severity: error
+    given: "$.info"
+    then:
+      field: contact
+      function: truthy
+
+  cometapi-server-https:
+    description: Server URLs must use HTTPS.
+    severity: error
+    given: "$.servers[*].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
+
+  cometapi-server-host:
+    description: Public server URL should point to api.cometapi.com.
+    severity: warn
+    given: "$.servers[*].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: "api.cometapi.com"
+
+  cometapi-versioned-base-path:
+    description: Server URL should include /v1 to match OpenAI compatibility.
+    severity: info
+    given: "$.servers[*].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: "/v1"
+
+  cometapi-bearer-security:
+    description: API must define a bearer-token security scheme.
+    severity: error
+    given: "$.components.securitySchemes[*]"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          properties:
+            type:
+              enum: ["http"]
+            scheme:
+              enum: ["bearer"]
+
+  cometapi-operation-id:
+    description: Every operation must declare a unique operationId.
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: operationId
+      function: truthy
+
+  cometapi-operation-tags:
+    description: Operations must declare at least one tag.
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: tags
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          minItems: 1
+
+  cometapi-error-responses:
+    description: Mutating operations should declare 401 and 429 error responses.
+    severity: warn
+    given: "$.paths[*][post].responses"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          anyOf:
+            - required: ["401"]
+            - required: ["429"]
+
+  cometapi-model-field:
+    description: Generative endpoints must accept a `model` request field for routing.
+    severity: info
+    given: "$.paths[*][post].requestBody.content['application/json'].schema.properties"
+    then:
+      field: model
+      function: truthy

@@ -1,0 +1,75 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "cometapi": "https://cometapi.com/vocab/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "ChatCompletion": {
+      "@id": "cometapi:ChatCompletion",
+      "@context": {
+        "id": "@id",
+        "model": {
+          "@id": "cometapi:model",
+          "@type": "xsd:string"
+        },
+        "created": {
+          "@id": "dcterms:created",
+          "@type": "xsd:integer"
+        },
+        "choices": {
+          "@id": "cometapi:choices",
+          "@container": "@set"
+        },
+        "usage": {
+          "@id": "cometapi:usage"
+        }
+      }
+    },
+
+    "Message": {
+      "@id": "cometapi:Message",
+      "@context": {
+        "role": {
+          "@id": "cometapi:role",
+          "@type": "xsd:string"
+        },
+        "content": "schema:text"
+      }
+    },
+
+    "Usage": {
+      "@id": "cometapi:Usage",
+      "@context": {
+        "prompt_tokens": {
+          "@id": "cometapi:promptTokens",
+          "@type": "xsd:integer"
+        },
+        "completion_tokens": {
+          "@id": "cometapi:completionTokens",
+          "@type": "xsd:integer"
+        },
+        "total_tokens": {
+          "@id": "cometapi:totalTokens",
+          "@type": "xsd:integer"
+        }
+      }
+    },
+
+    "Model": {
+      "@id": "cometapi:Model",
+      "@context": {
+        "id": "@id",
+        "owned_by": {
+          "@id": "cometapi:ownedBy",
+          "@type": "xsd:string"
+        },
+        "created": {
+          "@id": "dcterms:created",
+          "@type": "xsd:integer"
+        }
+      }
+    }
+  }
+}
