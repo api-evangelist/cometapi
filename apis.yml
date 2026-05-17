@@ -17,7 +17,7 @@ tags:
 type: Index
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
-x-type: company
+kind: company
 created: '2026-03-16'
 modified: '2026-04-26'
 position: Consumer
@@ -84,7 +84,7 @@ common:
   - type: GettingStarted
     url: https://apidoc.cometapi.com/how-to-use-cometapi-1792005m0
   - url: json-ld/cometapi-context.jsonld
-    type: JSON-LD
+    type: JSONLD
   - url: json-schema/cometapi-chat-completion-schema.json
     type: JSONSchema
   - url: rules/cometapi-rules.yml
