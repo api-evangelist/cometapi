@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: CometAPI Unified API — Images
+  description: 'CometAPI Unified API — Images. 1 operations. Lead operation: Generate image. Self-contained Naftiko capability
+    covering one Cometapi business surface.'
+  tags:
+  - Cometapi
+  - Images
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    COMETAPI_API_KEY: COMETAPI_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: unified-images
+    baseUri: https://api.cometapi.com/v1
+    description: CometAPI Unified API — Images business capability. Self-contained, no shared references.
+    resources:
+    - name: images-generations
+      path: /images/generations
+      operations:
+      - name: createimage
+        method: POST
+        description: Generate image
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.COMETAPI_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: unified-images-rest
+    port: 8080
+    description: REST adapter for CometAPI Unified API — Images. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/images/generations
+      name: images-generations
+      description: REST surface for images-generations.
+      operations:
+      - method: POST
+        name: createimage
+        description: Generate image
+        call: unified-images.createimage
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: unified-images-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for CometAPI Unified API — Images. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: generate-image
+      description: Generate image
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: unified-images.createimage
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
