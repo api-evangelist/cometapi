@@ -98,6 +98,8 @@ common:
     type: Spectral
   - url: capabilities/cometapi-multi-model-capabilities.yml
     type: NaftikoCapabilities
+  - type: LLMsTxt
+    url: https://www.cometapi.com/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
