@@ -1,0 +1,181 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CometAPI Unified API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Chat",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create chat completion",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cometapi.com/v1/chat/completions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send a chat completion request to any supported LLM. The `model` field selects the upstream provider (e.g. `gpt-5.5`, `claude-4-7-opus`, `gemini-2.5-pro`, `deepseek-v4`)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Embeddings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create embedding",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cometapi.com/v1/embeddings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate vector embeddings for text input."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Images",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cometapi.com/v1/images/generations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate an image from a text prompt using providers like Nano Banana, GPT Image, or Seedream."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Video",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate video",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cometapi.com/v1/videos/generations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Asynchronously generate a video from text or an image. Supported models include Sora, Veo, Grok, and Kling."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Audio",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create speech",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cometapi.com/v1/audio/speech",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Synthesize speech audio from text (TTS)."
+        },
+        {
+          "info": {
+            "name": "Transcribe audio",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cometapi.com/v1/audio/transcriptions",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "model",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "language",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Transcribe an audio file to text using Whisper-class models."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Models",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cometapi.com/v1/models"
+          },
+          "docs": "Return the catalog of models routable through CometAPI."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
