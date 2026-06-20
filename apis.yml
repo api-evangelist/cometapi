@@ -14,7 +14,7 @@ tags:
   - OpenAI-Compatible
   - Video
 type: Index
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 kind: company
 created: '2026-03-16'
@@ -38,7 +38,7 @@ apis:
       - Images
       - OpenAI-Compatible
       - Video
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.cometapi.com/v1
     humanURL: https://apidoc.cometapi.com/
     properties:
