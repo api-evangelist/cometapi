@@ -87,7 +87,7 @@ common:
     type: JSONSchema
   - url: rules/cometapi-rules.yml
     type: Spectral
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://www.cometapi.com/llms.txt
 maintainers:
   - FN: Kin Lane
