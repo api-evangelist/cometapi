@@ -69,6 +69,12 @@ apis:
       - Multi-modal pipelines combining text, image, video, and audio models
       - Internal model routers and prompt-experimentation tooling
 common:
+  - type: TrustCenter
+    url: security/cometapi-trust-center.yml
+  - type: DomainSecurity
+    url: security/cometapi-domain-security.yml
+  - type: Authentication
+    url: authentication/cometapi-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/CometAPI-dev
   - type: LinkedIn
@@ -89,6 +95,8 @@ common:
     type: Spectral
   - type: LlmsText
     url: https://www.cometapi.com/llms.txt
+  - url: https://www.cometapi.com/blog
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
