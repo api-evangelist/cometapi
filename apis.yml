@@ -69,6 +69,8 @@ apis:
       - Multi-modal pipelines combining text, image, video, and audio models
       - Internal model routers and prompt-experimentation tooling
 common:
+  - type: AgenticAccess
+    url: agentic-access/cometapi-agentic-access.yml
   - type: TrustCenter
     url: security/cometapi-trust-center.yml
   - type: DomainSecurity
