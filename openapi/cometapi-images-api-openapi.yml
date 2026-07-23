@@ -1,0 +1,62 @@
+openapi: 3.1.0
+info:
+  title: CometAPI Unified Audio Images API
+  description: CometAPI is an OpenAI-compatible aggregator that exposes a single REST surface for 500+ AI models from multiple vendors (OpenAI, Anthropic, Google, xAI, DeepSeek, Alibaba, and more). Endpoints follow OpenAI's request/response shapes for chat, embeddings, images, video, and speech, so existing OpenAI SDK clients can switch by changing only the base URL and API key.
+  version: 1.0.0
+  contact:
+    name: CometAPI
+    url: https://www.cometapi.com/
+servers:
+- url: https://api.cometapi.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Images
+  description: Text-to-image and image-to-image generation.
+paths:
+  /images/generations:
+    post:
+      operationId: createImage
+      summary: Generate image
+      description: Generate an image from a text prompt using providers like Nano Banana, GPT Image, or Seedream.
+      tags:
+      - Images
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - model
+              - prompt
+              properties:
+                model:
+                  type: string
+                prompt:
+                  type: string
+                size:
+                  type: string
+                n:
+                  type: integer
+                  default: 1
+                style:
+                  type: string
+                response_format:
+                  type: string
+                  enum:
+                  - url
+                  - b64_json
+      responses:
+        '200':
+          description: Generated image URLs or base64 data.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: CometAPI Documentation
+  url: https://apidoc.cometapi.com/

@@ -1,0 +1,54 @@
+openapi: 3.1.0
+info:
+  title: CometAPI Unified Audio Embeddings API
+  description: CometAPI is an OpenAI-compatible aggregator that exposes a single REST surface for 500+ AI models from multiple vendors (OpenAI, Anthropic, Google, xAI, DeepSeek, Alibaba, and more). Endpoints follow OpenAI's request/response shapes for chat, embeddings, images, video, and speech, so existing OpenAI SDK clients can switch by changing only the base URL and API key.
+  version: 1.0.0
+  contact:
+    name: CometAPI
+    url: https://www.cometapi.com/
+servers:
+- url: https://api.cometapi.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Embeddings
+  description: Vector embeddings for retrieval and similarity.
+paths:
+  /embeddings:
+    post:
+      operationId: createEmbedding
+      summary: Create embedding
+      description: Generate vector embeddings for text input.
+      tags:
+      - Embeddings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - model
+              - input
+              properties:
+                model:
+                  type: string
+                input:
+                  oneOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+      responses:
+        '200':
+          description: Embedding response.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: CometAPI Documentation
+  url: https://apidoc.cometapi.com/

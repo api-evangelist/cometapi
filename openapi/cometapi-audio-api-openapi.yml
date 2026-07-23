@@ -1,0 +1,78 @@
+openapi: 3.1.0
+info:
+  title: CometAPI Unified Audio API
+  description: CometAPI is an OpenAI-compatible aggregator that exposes a single REST surface for 500+ AI models from multiple vendors (OpenAI, Anthropic, Google, xAI, DeepSeek, Alibaba, and more). Endpoints follow OpenAI's request/response shapes for chat, embeddings, images, video, and speech, so existing OpenAI SDK clients can switch by changing only the base URL and API key.
+  version: 1.0.0
+  contact:
+    name: CometAPI
+    url: https://www.cometapi.com/
+servers:
+- url: https://api.cometapi.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Audio
+  description: Speech synthesis, transcription, and translation.
+paths:
+  /audio/speech:
+    post:
+      operationId: createSpeech
+      summary: Create speech
+      description: Synthesize speech audio from text (TTS).
+      tags:
+      - Audio
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - model
+              - input
+              properties:
+                model:
+                  type: string
+                input:
+                  type: string
+                voice:
+                  type: string
+                response_format:
+                  type: string
+      responses:
+        '200':
+          description: Audio bytes.
+  /audio/transcriptions:
+    post:
+      operationId: createTranscription
+      summary: Transcribe audio
+      description: Transcribe an audio file to text using Whisper-class models.
+      tags:
+      - Audio
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                model:
+                  type: string
+                language:
+                  type: string
+      responses:
+        '200':
+          description: Transcript.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: CometAPI Documentation
+  url: https://apidoc.cometapi.com/
