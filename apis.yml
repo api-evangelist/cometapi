@@ -14,7 +14,20 @@ tags:
   - OpenAI-Compatible
   - Video
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cometapi.png
 access: 3rd-Party
 kind: company
 created: '2026-03-16'
@@ -28,46 +41,90 @@ description: >-
   key), with pay-as-you-go pricing reportedly 20-40% cheaper than direct vendor rates, sub-400ms median latency, and
   99.9% service availability.
 apis:
-  - aid: cometapi:cometapi-unified-api
-    name: CometAPI Unified API
-    tags:
-      - AI
-      - Aggregator
-      - Chat
-      - Embeddings
-      - Images
-      - OpenAI-Compatible
-      - Video
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.cometapi.com/v1
-    humanURL: https://apidoc.cometapi.com/
-    properties:
-      - url: https://apidoc.cometapi.com/
-        type: Documentation
-      - url: https://www.cometapi.com/
-        type: Marketing
-      - url: openapi/cometapi-unified-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      OpenAI-compatible REST API exposing chat completions, embeddings, image generation, video generation, speech
-      synthesis, and audio transcription across hundreds of upstream models. Authentication uses a bearer token, and the
-      `model` field on each request selects the upstream provider (e.g. gpt-5.5, claude-4-7-opus, gemini-2.5-pro,
-      deepseek-v4, sora, veo, kling, whisper).
-    x-features:
-      - One bearer-token credential for 500+ models
-      - OpenAI SDK drop-in (only base URL and key change)
-      - Chat, embeddings, images, video, speech, and transcription
-      - Streaming chat completions
-      - Tool/function calling support
-      - Pay-as-you-go billing with no monthly fees
-      - Real-time usage analytics and per-key budget controls
-      - Sub-400ms median latency, 99.9% availability
-    x-use-cases:
-      - Replacing single-vendor SDKs in SaaS apps
-      - Cross-vendor model evaluation and A/B testing
-      - Cost consolidation across an enterprise AI portfolio
-      - Multi-modal pipelines combining text, image, video, and audio models
-      - Internal model routers and prompt-experimentation tooling
+- aid: cometapi:cometapi-audio-api
+  name: CometAPI Audio API
+  description: Speech synthesis, transcription, and translation.
+  humanURL: https://apidoc.cometapi.com/
+  baseURL: https://api.cometapi.com/v1
+  tags:
+  - Audio
+  properties:
+  - type: OpenAPI
+    url: openapi/cometapi-audio-api-openapi.yml
+  - type: Documentation
+    url: https://apidoc.cometapi.com/
+  - type: Marketing
+    url: https://www.cometapi.com/
+- aid: cometapi:cometapi-chat-api
+  name: CometAPI Chat API
+  description: Chat completions across LLM providers.
+  humanURL: https://apidoc.cometapi.com/
+  baseURL: https://api.cometapi.com/v1
+  tags:
+  - Chat
+  properties:
+  - type: OpenAPI
+    url: openapi/cometapi-chat-api-openapi.yml
+  - type: Documentation
+    url: https://apidoc.cometapi.com/
+  - type: Marketing
+    url: https://www.cometapi.com/
+- aid: cometapi:cometapi-embeddings-api
+  name: CometAPI Embeddings API
+  description: Vector embeddings for retrieval and similarity.
+  humanURL: https://apidoc.cometapi.com/
+  baseURL: https://api.cometapi.com/v1
+  tags:
+  - Embeddings
+  properties:
+  - type: OpenAPI
+    url: openapi/cometapi-embeddings-api-openapi.yml
+  - type: Documentation
+    url: https://apidoc.cometapi.com/
+  - type: Marketing
+    url: https://www.cometapi.com/
+- aid: cometapi:cometapi-images-api
+  name: CometAPI Images API
+  description: Text-to-image and image-to-image generation.
+  humanURL: https://apidoc.cometapi.com/
+  baseURL: https://api.cometapi.com/v1
+  tags:
+  - Images
+  properties:
+  - type: OpenAPI
+    url: openapi/cometapi-images-api-openapi.yml
+  - type: Documentation
+    url: https://apidoc.cometapi.com/
+  - type: Marketing
+    url: https://www.cometapi.com/
+- aid: cometapi:cometapi-models-api
+  name: CometAPI Models API
+  description: List of supported models routable by CometAPI.
+  humanURL: https://apidoc.cometapi.com/
+  baseURL: https://api.cometapi.com/v1
+  tags:
+  - Models
+  properties:
+  - type: OpenAPI
+    url: openapi/cometapi-models-api-openapi.yml
+  - type: Documentation
+    url: https://apidoc.cometapi.com/
+  - type: Marketing
+    url: https://www.cometapi.com/
+- aid: cometapi:cometapi-video-api
+  name: CometAPI Video API
+  description: Text-to-video, image-to-video, and video extension.
+  humanURL: https://apidoc.cometapi.com/
+  baseURL: https://api.cometapi.com/v1
+  tags:
+  - Video
+  properties:
+  - type: OpenAPI
+    url: openapi/cometapi-video-api-openapi.yml
+  - type: Documentation
+    url: https://apidoc.cometapi.com/
+  - type: Marketing
+    url: https://www.cometapi.com/
 common:
   - type: AgenticAccess
     url: agentic-access/cometapi-agentic-access.yml
