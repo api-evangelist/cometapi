@@ -1,0 +1,283 @@
+openapi: 3.1.0
+info:
+  title: CometAPI Unified API
+  description: >-
+    CometAPI is an OpenAI-compatible aggregator that exposes a single REST
+    surface for 500+ AI models from multiple vendors (OpenAI, Anthropic,
+    Google, xAI, DeepSeek, Alibaba, and more). Endpoints follow OpenAI's
+    request/response shapes for chat, embeddings, images, video, and
+    speech, so existing OpenAI SDK clients can switch by changing only the
+    base URL and API key.
+  version: '1.0.0'
+  contact:
+    name: CometAPI
+    url: https://www.cometapi.com/
+externalDocs:
+  description: CometAPI Documentation
+  url: https://apidoc.cometapi.com/
+servers:
+  - url: https://api.cometapi.com/v1
+    description: Production
+tags:
+  - name: Chat
+    description: Chat completions across LLM providers.
+  - name: Embeddings
+    description: Vector embeddings for retrieval and similarity.
+  - name: Images
+    description: Text-to-image and image-to-image generation.
+  - name: Audio
+    description: Speech synthesis, transcription, and translation.
+  - name: Video
+    description: Text-to-video, image-to-video, and video extension.
+  - name: Models
+    description: List of supported models routable by CometAPI.
+security:
+  - bearerAuth: []
+paths:
+  /chat/completions:
+    post:
+      operationId: createChatCompletion
+      summary: Create chat completion
+      description: >-
+        Send a chat completion request to any supported LLM. The `model`
+        field selects the upstream provider (e.g. `gpt-5.5`, `claude-4-7-opus`,
+        `gemini-2.5-pro`, `deepseek-v4`).
+      tags:
+        - Chat
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatCompletionRequest'
+      responses:
+        '200':
+          description: Completion response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatCompletionResponse'
+        '401':
+          description: Invalid API key.
+        '429':
+          description: Rate limit or budget exceeded.
+  /embeddings:
+    post:
+      operationId: createEmbedding
+      summary: Create embedding
+      description: Generate vector embeddings for text input.
+      tags:
+        - Embeddings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [model, input]
+              properties:
+                model:
+                  type: string
+                input:
+                  oneOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
+      responses:
+        '200':
+          description: Embedding response.
+  /images/generations:
+    post:
+      operationId: createImage
+      summary: Generate image
+      description: Generate an image from a text prompt using providers like Nano Banana, GPT Image, or Seedream.
+      tags:
+        - Images
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [model, prompt]
+              properties:
+                model:
+                  type: string
+                prompt:
+                  type: string
+                size:
+                  type: string
+                n:
+                  type: integer
+                  default: 1
+                style:
+                  type: string
+                response_format:
+                  type: string
+                  enum: [url, b64_json]
+      responses:
+        '200':
+          description: Generated image URLs or base64 data.
+  /videos/generations:
+    post:
+      operationId: createVideo
+      summary: Generate video
+      description: Asynchronously generate a video from text or an image. Supported models include Sora, Veo, Grok, and Kling.
+      tags:
+        - Video
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [model, prompt]
+              properties:
+                model:
+                  type: string
+                prompt:
+                  type: string
+                image:
+                  type: string
+                  format: uri
+                duration:
+                  type: integer
+      responses:
+        '202':
+          description: Video generation job accepted; poll for completion.
+  /audio/speech:
+    post:
+      operationId: createSpeech
+      summary: Create speech
+      description: Synthesize speech audio from text (TTS).
+      tags:
+        - Audio
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [model, input]
+              properties:
+                model:
+                  type: string
+                input:
+                  type: string
+                voice:
+                  type: string
+                response_format:
+                  type: string
+      responses:
+        '200':
+          description: Audio bytes.
+  /audio/transcriptions:
+    post:
+      operationId: createTranscription
+      summary: Transcribe audio
+      description: Transcribe an audio file to text using Whisper-class models.
+      tags:
+        - Audio
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                model:
+                  type: string
+                language:
+                  type: string
+      responses:
+        '200':
+          description: Transcript.
+  /models:
+    get:
+      operationId: listModels
+      summary: List models
+      description: Return the catalog of models routable through CometAPI.
+      tags:
+        - Models
+      responses:
+        '200':
+          description: List of models.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    ChatCompletionRequest:
+      type: object
+      required: [model, messages]
+      properties:
+        model:
+          type: string
+          description: Routing key for the upstream model.
+          example: gpt-5.5
+        messages:
+          type: array
+          items:
+            type: object
+            required: [role, content]
+            properties:
+              role:
+                type: string
+                enum: [system, user, assistant, tool]
+              content:
+                type: string
+        stream:
+          type: boolean
+          default: false
+        temperature:
+          type: number
+          minimum: 0
+          maximum: 2
+        max_tokens:
+          type: integer
+        tools:
+          type: array
+          items:
+            type: object
+    ChatCompletionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          type: string
+        model:
+          type: string
+        created:
+          type: integer
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: integer
+              message:
+                type: object
+                properties:
+                  role:
+                    type: string
+                  content:
+                    type: string
+              finish_reason:
+                type: string
+        usage:
+          type: object
+          properties:
+            prompt_tokens:
+              type: integer
+            completion_tokens:
+              type: integer
+            total_tokens:
+              type: integer

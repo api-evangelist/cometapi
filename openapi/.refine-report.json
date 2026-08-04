@@ -1,0 +1,24 @@
+{
+  "provider": "cometapi",
+  "sources": [
+    "cometapi-audio-api-openapi.yml",
+    "cometapi-chat-api-openapi.yml",
+    "cometapi-embeddings-api-openapi.yml",
+    "cometapi-images-api-openapi.yml",
+    "cometapi-models-api-openapi.yml",
+    "cometapi-video-api-openapi.yml"
+  ],
+  "outputs": [
+    "cometapi-audio-api-openapi.yml",
+    "cometapi-chat-api-openapi.yml",
+    "cometapi-embeddings-api-openapi.yml",
+    "cometapi-images-api-openapi.yml",
+    "cometapi-models-api-openapi.yml",
+    "cometapi-video-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
