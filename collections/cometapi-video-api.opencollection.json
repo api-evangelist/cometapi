@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CometAPI Unified Audio Video API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Video",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate video",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cometapi.com/v1/videos/generations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Asynchronously generate a video from text or an image. Supported models include Sora, Veo, Grok, and Kling."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

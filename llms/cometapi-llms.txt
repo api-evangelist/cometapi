@@ -1,0 +1,85 @@
+# CometAPI LLM Instructions
+
+CometAPI is a unified API that provides access to 500+ AI models from multiple providers.  
+This document helps LLMs and agents discover the main entry points, model catalog, documentation, pricing, playground, and support resources.
+
+---
+
+## Main Entry Points
+
+-  https://www.cometapi.com/ 
+  English homepage. Use this page to understand what CometAPI is, supported providers, and high‑level features.
+
+-  https://www.cometapi.com/models/  
+  Model catalog. Use this page to browse all available AI models, view per‑model pricing, filter by provider or capability, and open individual model detail pages.
+
+---
+
+## Models & Capabilities
+
+-  https://cometapi.com/models/  
+  Primary model directory. Use this page to look up model IDs, providers, capabilities (e.g., text‑to‑image, audio‑to‑text, code generation), and high‑level pricing tiers.
+
+-  Pattern: model detail pages  
+  https://cometapi.com/en/models/{provider}/{model-id}/  
+  Use these URLs to fetch model‑specific information such as input/output formats, capabilities, and example use cases.
+
+---
+
+## Documentation & API Reference
+
+-  https://apidoc.cometapi.com/  
+  Primary API reference. Use this for authentication, base URLs, endpoints, request/response schemas, rate limits, and SDK examples.
+
+---
+
+## Blog & Updates
+
+-  https://www.cometapi.com/blog/  
+  Blog index. Use this to find articles about new model releases, integration guides, benchmarks, and best practices.
+
+-  https://www.cometapi.com/changelog/
+  Changelog or release notes. Use this to see the latest changes to models, endpoints, and platform features.
+
+---
+
+## Community & Support
+
+-   https://discord.com/invite/HMpuV6FCrG  
+  Discord community. Use this channel for Q&A, announcements, and direct interaction with the CometAPI team and other users.
+
+-   support@cometapi.com  
+  Email support. Contact this address to get 1:1 technical assistance, integration help, or billing support from the CometAPI team.
+
+-   https://github.com/CometAPI-dev  
+  GitHub organization. Use this to find SDKs, example projects, and integration templates for CometAPI.
+
+-   https://x.com/cometapi2025  
+  X (Twitter) account. Follow for product updates, new model releases, and integration tips.
+
+-   https://vk.com/cometapi  
+  VK page. Follow for announcements and updates in Russian‑speaking regions.
+
+---
+
+## Languages
+
+These URLs are language‑specific homepages for CometAPI:
+
+-  English:   https://cometapi.com/en/  
+-  Vietnamese: https://cometapi.com/vi/  
+-  Turkish:   https://cometapi.com/tr/  
+-  German:    https://cometapi.com/de/  
+-  Korean:    https://cometapi.com/ko/  
+-  Russian:   https://cometapi.com/ru/  
+
+Use the corresponding language homepage when you need localized marketing copy or documentation entry points for that language.
+
+---
+
+## Usage Notes for LLMs
+
+-  Use the **English homepage** and **models catalog** as the primary starting points.  
+-  Use **API docs** at https://apidoc.cometapi.com/ for any details about authentication, endpoints, and payload schemas.  
+-  Use **model detail pages** under `/en/models/{provider}/{model-id}/` for model‑specific capabilities and pricing.  
+-  For support, prefer the **support@cometapi.com** or **Discord** links above.
