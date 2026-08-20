@@ -2,6 +2,18 @@ aid: cometapi
 url: https://raw.githubusercontent.com/api-evangelist/cometapi/refs/heads/main/apis.yml
 name: CometAPI
 tags:
+  - Artificial Intelligence
+  - Aggregator
+  - Audio
+  - Chat
+  - Embeddings
+  - Generative AI
+  - Image
+  - LLM
+  - Multi-Model
+  - OpenAI-Compatible
+  - Video
+tags_raw:
   - AI
   - Aggregator
   - Audio
@@ -89,6 +101,8 @@ apis:
   humanURL: https://apidoc.cometapi.com/
   baseURL: https://api.cometapi.com/v1
   tags:
+  - Image
+  tags_raw:
   - Images
   properties:
   - type: OpenAPI
