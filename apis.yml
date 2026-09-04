@@ -44,18 +44,19 @@ accessModel:
   try_now: true
   public: false
   label: Freemium · Self-serve signup
-  confidence: high
+  confidence: medium
   source:
   - plans
   - authentication
-  generated: '2026-07-22'
+  - security
+  generated: '2026-09-03'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cometapi.png
 access: 3rd-Party
 kind: company
 created: '2026-03-16'
 modified: '2026-05-19'
-position: Consumer
+position: Consuming
 description: >-
   CometAPI is an AI API aggregator that consolidates access to 500+ models from multiple providers (OpenAI, Anthropic,
   Google, xAI, DeepSeek, Alibaba, and more) behind a single OpenAI-compatible REST surface. It supports chat
