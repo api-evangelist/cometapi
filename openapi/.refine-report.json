@@ -1,12 +1,7 @@
 {
   "provider": "cometapi",
   "sources": [
-    "cometapi-audio-api-openapi.yml",
-    "cometapi-chat-api-openapi.yml",
-    "cometapi-embeddings-api-openapi.yml",
-    "cometapi-images-api-openapi.yml",
-    "cometapi-models-api-openapi.yml",
-    "cometapi-video-api-openapi.yml"
+    "_original/cometapi-unified-api-openapi.yml"
   ],
   "outputs": [
     "cometapi-audio-api-openapi.yml",
@@ -19,6 +14,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "cometapi-unified-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "cometapi-audio-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cometapi-chat-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cometapi-embeddings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cometapi-images-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cometapi-models-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cometapi-video-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

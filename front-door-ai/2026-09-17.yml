@@ -1,0 +1,34 @@
+# Front Door AI Index — cometapi — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: cometapi
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.cometapi.com
+  final_host: www.cometapi.com
+  ownership: own
+  owner: cometapi
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 52
+  host_score: 52
+  density: 43.84
+  words: 1186
+  tiers:
+    agentic: 2
+    core: 24
+    model: 26
+  ambiguous: 4
+  top_terms:
+    AI: 20
+    OpenAI: 8
+    Claude: 7
+    GPT: 5
+    Gemini: 4
+    LLMs: 4
+    automation: 3
+    Anthropic: 2
+    prompts: 2
+    agent: 1

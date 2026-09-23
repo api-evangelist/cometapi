@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: CometAPI Unified Audio Models API
+  title: CometAPI Unified Models API
   description: CometAPI is an OpenAI-compatible aggregator that exposes a single REST surface for 500+ AI models from multiple vendors (OpenAI, Anthropic, Google, xAI, DeepSeek, Alibaba, and more). Endpoints follow OpenAI's request/response shapes for chat, embeddings, images, video, and speech, so existing OpenAI SDK clients can switch by changing only the base URL and API key.
   version: 1.0.0
   contact:
