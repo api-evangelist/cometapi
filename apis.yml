@@ -1,6 +1,10 @@
 aid: cometapi
 url: https://raw.githubusercontent.com/api-evangelist/cometapi/refs/heads/main/apis.yml
 name: CometAPI
+x-docs-platform: mintlify
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-09-24
+x-docs-hosting: vercel
 tags:
   - Artificial Intelligence
   - Aggregator
