@@ -1,21 +1,19 @@
-# Kin Score artifact — cometapi — 2026-08-25T154045
+# Kin Score artifact — cometapi — 2026-09-25T232841
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: cometapi
-  schema_version: 0.14.0
-  scored_at: '2026-08-25'
-  run_ts: 2026-08-25T154045
-  composite: 35.2
+  schema_version: 0.23.0
+  scored_at: '2026-09-25'
+  run_ts: 2026-09-25T232841
+  composite: 33.0
   band: thin
   facets:
-    discoverability: 81.5
-    contract_quality: 58.3
-    governance: 13.6
+    discoverability: 73.2
+    contract_quality: 52.8
+    contract_governance: 13.6
     operational_transparency: 10.5
     developer_ergonomics: 23.8
-    commercial_clarity: 23.7
-    contract_governance: 13.6
     access_clarity: 23.7
   agent_readiness:
     score: 19.8
@@ -40,6 +38,12 @@ kin_score:
       protected_resource_metadata: false
       dynamic_client_registration: false
       agentic_commerce: false
+  regulatory:
+    applies: true
+    regime: Horizontal (data, software, accessibility, platform)
+    regime_id: horizontal
+    score: 20.0
+    matched_via: fallback
   provenance:
     agentic_access: derived
     contracts:
