@@ -83,20 +83,6 @@ apis:
     url: https://apidoc.cometapi.com/
   - type: Marketing
     url: https://www.cometapi.com/
-- aid: cometapi:cometapi-chat-api
-  name: CometAPI Chat API
-  description: Chat completions across LLM providers.
-  humanURL: https://apidoc.cometapi.com/
-  baseURL: https://api.cometapi.com/v1
-  tags:
-  - Chat
-  properties:
-  - type: OpenAPI
-    url: openapi/cometapi-chat-api-openapi.yml
-  - type: Documentation
-    url: https://apidoc.cometapi.com/
-  - type: Marketing
-    url: https://www.cometapi.com/
 - aid: cometapi:cometapi-embeddings-api
   name: CometAPI Embeddings API
   description: Vector embeddings for retrieval and similarity.
@@ -151,6 +137,20 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/cometapi-video-api-openapi.yml
+  - type: Documentation
+    url: https://apidoc.cometapi.com/
+  - type: Marketing
+    url: https://www.cometapi.com/
+- aid: cometapi:cometapi-chat-completions-api
+  name: CometAPI Chat Completions API
+  description: Chat completions across LLM providers.
+  humanURL: https://apidoc.cometapi.com/
+  baseURL: https://api.cometapi.com/v1
+  tags:
+  - Chat Completions
+  properties:
+  - type: OpenAPI
+    url: openapi/cometapi-chat-completions-api-openapi.yml
   - type: Documentation
     url: https://apidoc.cometapi.com/
   - type: Marketing

@@ -12,7 +12,7 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- name: Chat
+- name: Chat Completions
   description: Chat completions across LLM providers.
 paths:
   /chat/completions:
@@ -21,7 +21,7 @@ paths:
       summary: Create chat completion
       description: Send a chat completion request to any supported LLM. The `model` field selects the upstream provider (e.g. `gpt-5.5`, `claude-4-7-opus`, `gemini-2.5-pro`, `deepseek-v4`).
       tags:
-      - Chat
+      - Chat Completions
       requestBody:
         required: true
         content:
@@ -41,6 +41,42 @@ paths:
           description: Rate limit or budget exceeded.
 components:
   schemas:
+    ChatCompletionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          type: string
+        model:
+          type: string
+        created:
+          type: integer
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: integer
+              message:
+                type: object
+                properties:
+                  role:
+                    type: string
+                  content:
+                    type: string
+              finish_reason:
+                type: string
+        usage:
+          type: object
+          properties:
+            prompt_tokens:
+              type: integer
+            completion_tokens:
+              type: integer
+            total_tokens:
+              type: integer
     ChatCompletionRequest:
       type: object
       required:
@@ -81,42 +117,6 @@ components:
           type: array
           items:
             type: object
-    ChatCompletionResponse:
-      type: object
-      properties:
-        id:
-          type: string
-        object:
-          type: string
-        model:
-          type: string
-        created:
-          type: integer
-        choices:
-          type: array
-          items:
-            type: object
-            properties:
-              index:
-                type: integer
-              message:
-                type: object
-                properties:
-                  role:
-                    type: string
-                  content:
-                    type: string
-              finish_reason:
-                type: string
-        usage:
-          type: object
-          properties:
-            prompt_tokens:
-              type: integer
-            completion_tokens:
-              type: integer
-            total_tokens:
-              type: integer
   securitySchemes:
     bearerAuth:
       type: http
