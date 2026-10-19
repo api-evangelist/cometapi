@@ -1,0 +1,324 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Models API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cometapi.com"
+    }
+  ],
+  "paths": {
+    "/api/models": {
+      "get": {
+        "summary": "Models",
+        "operationId": "models",
+        "description": "Returns the public CometAPI model catalog. This operation does not require an Authorization header. Use it to discover model IDs, provider names, capability tags, endpoint hints, and public pricing metadata before choosing a model.",
+        "responses": {
+          "200": {
+            "description": "Public model catalog response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "data",
+                    "success"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Whether the catalog request completed successfully."
+                    },
+                    "page": {
+                      "type": "integer",
+                      "description": "Catalog page number returned by the service. A value of 0 means the unpaginated public catalog response."
+                    },
+                    "page_size": {
+                      "type": "integer",
+                      "description": "Number of records requested for a paginated catalog response. A value of 0 means the service returned the default public catalog response."
+                    },
+                    "total": {
+                      "type": "integer",
+                      "description": "Total number of catalog records available at request time."
+                    },
+                    "data": {
+                      "type": "array",
+                      "description": "Model catalog records. Each item describes one model ID and the public metadata available for routing, capability selection, and pricing review.",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id"
+                        ],
+                        "properties": {
+                          "created": {
+                            "type": "integer",
+                            "description": "Unix timestamp associated with the catalog record."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "Model ID to send in API requests, such as the `model` field for OpenAI-compatible endpoints."
+                          },
+                          "code": {
+                            "type": "string",
+                            "description": "Catalog code for the model. This usually matches `id` and is used by CometAPI catalog tooling."
+                          },
+                          "provider": {
+                            "type": "string",
+                            "description": "Display name of the model provider."
+                          },
+                          "provider_code": {
+                            "type": "string",
+                            "description": "Stable provider code used in catalog metadata."
+                          },
+                          "provider_sort": {
+                            "type": "integer",
+                            "description": "Sort key used by the public model directory for provider ordering."
+                          },
+                          "model_sort": {
+                            "type": "integer",
+                            "description": "Sort key used by the public model directory for model ordering."
+                          },
+                          "published_at": {
+                            "type": "integer",
+                            "description": "Unix timestamp for the model's catalog publication date when available."
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "Short public description of the model."
+                          },
+                          "tags": {
+                            "type": "array",
+                            "description": "Public tags attached to the model. Empty array means no tags are listed.",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Human-readable model name shown in the model directory."
+                          },
+                          "model_type": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "High-level model category such as `text`, `image`, `video`, or `audio`. Null or an empty string means the catalog does not expose a category for that record."
+                          },
+                          "context_length": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ],
+                            "description": "Maximum input context length when the model exposes one. Null means no public context length is listed."
+                          },
+                          "max_completion_tokens": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ],
+                            "description": "Maximum generated token count when the model exposes one. Null means no public completion-token limit is listed."
+                          },
+                          "features": {
+                            "type": [
+                              "array",
+                              "null"
+                            ],
+                            "description": "Capability tags such as `text-to-text`, `text-to-image`, or `speech-to-text`. Null or an empty array means no feature tags are listed.",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "endpoints": {
+                            "oneOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              {
+                                "type": "object"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ],
+                            "description": "Endpoint hints for the model. Some records return a JSON string with paths and methods, while older records may return a list of compatibility labels."
+                          },
+                          "pricing": {
+                            "$ref": "#/components/schemas/Pricing",
+                            "description": "Pricing CometAPI reports for this model, when available."
+                          },
+                          "show_official_price": {
+                            "type": "boolean",
+                            "description": "Whether the public model directory should show official provider pricing metadata beside CometAPI pricing."
+                          },
+                          "official_pricing": {
+                            "$ref": "#/components/schemas/Pricing",
+                            "description": "Pricing the original provider lists for this model, when available."
+                          },
+                          "icon": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "Provider icon key used by the model directory. Null means no icon key is listed."
+                          },
+                          "latest_model_name": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "Latest model name associated with this catalog record when available."
+                          },
+                          "pricing_content": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "Additional pricing note shown in the model directory. Empty string means no extra note is listed."
+                          },
+                          "matched_models": {
+                            "description": "Provider-side matched model metadata when the catalog exposes it. Null means no matched model list is present."
+                          },
+                          "cover": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "Cover asset filename used by the public model directory. Null means no cover asset is listed."
+                          },
+                          "api_doc_url": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "format": "uri",
+                            "description": "CometAPI documentation URL for the matching endpoint or model family when available."
+                          },
+                          "upcoming": {
+                            "type": "boolean",
+                            "description": "Whether the model is marked as upcoming in the public catalog."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "publicCatalog": {
+                    "summary": "Public model catalog",
+                    "value": {
+                      "success": true,
+                      "page": 0,
+                      "page_size": 0,
+                      "total": 301,
+                      "data": [
+                        {
+                          "created": 1776391310,
+                          "id": "gpt-image-2",
+                          "code": "gpt-image-2",
+                          "provider": "OpenAI",
+                          "provider_code": "openai",
+                          "description": "Image generation model for text-to-image and editing workflows.",
+                          "tags": [],
+                          "name": "GPT Image 2",
+                          "model_type": "image",
+                          "context_length": null,
+                          "max_completion_tokens": null,
+                          "features": [
+                            "text-to-image"
+                          ],
+                          "endpoints": "{\n  \"openai-image\": {\n    \"path\": \"/v1/images/generations\",\n    \"method\": \"POST\"\n  }\n}",
+                          "pricing": {
+                            "currency": "USD / M Tokens",
+                            "input": 4,
+                            "output": 24,
+                            "per_request": null,
+                            "per_second": null
+                          },
+                          "api_doc_url": "https://apidoc.cometapi.com/api/image/openai/images",
+                          "upcoming": false
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "Shell",
+            "label": "Default",
+            "source": "curl https://api.cometapi.com/api/models\n"
+          },
+          {
+            "lang": "Python",
+            "label": "Default",
+            "source": "import requests\n\nresponse = requests.get(\"https://api.cometapi.com/api/models\")\nmodels = response.json()[\"data\"]\n\nfor model in models[:10]:\n    print(model[\"id\"], \"-\", model.get(\"provider\", \"\"))\n"
+          },
+          {
+            "lang": "JavaScript",
+            "label": "Default",
+            "source": "const response = await fetch(\"https://api.cometapi.com/api/models\");\nconst { data: models } = await response.json();\n\nfor (const model of models.slice(0, 10)) {\n    console.log(model.id, \"-\", model.provider ?? \"\");\n}\n"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Pricing": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "description": "Public pricing metadata for a catalog record. Null means no pricing metadata is listed for that price source.",
+        "properties": {
+          "currency": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Pricing unit label, such as `USD / M Tokens`."
+          },
+          "input": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "Input price for the listed unit. Null means input pricing is not listed."
+          },
+          "output": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "Output price for the listed unit. Null means output pricing is not listed."
+          },
+          "per_request": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "Per-request price when the model is billed per task or request. Null means per-request pricing is not listed."
+          },
+          "per_second": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "Per-second price when the model is billed by generated or processed duration. Null means per-second pricing is not listed."
+          }
+        }
+      }
+    }
+  }
+}

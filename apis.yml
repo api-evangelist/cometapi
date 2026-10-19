@@ -69,50 +69,6 @@ description: >-
   key), with pay-as-you-go pricing reportedly 20-40% cheaper than direct vendor rates, sub-400ms median latency, and
   99.9% service availability.
 apis:
-- aid: cometapi:cometapi-audio-api
-  name: CometAPI Audio API
-  description: Speech synthesis, transcription, and translation.
-  humanURL: https://apidoc.cometapi.com/
-  baseURL: https://api.cometapi.com/v1
-  tags:
-  - Audio
-  properties:
-  - type: OpenAPI
-    url: openapi/cometapi-audio-api-openapi.yml
-  - type: Documentation
-    url: https://apidoc.cometapi.com/
-  - type: Marketing
-    url: https://www.cometapi.com/
-- aid: cometapi:cometapi-embeddings-api
-  name: CometAPI Embeddings API
-  description: Vector embeddings for retrieval and similarity.
-  humanURL: https://apidoc.cometapi.com/
-  baseURL: https://api.cometapi.com/v1
-  tags:
-  - Embeddings
-  properties:
-  - type: OpenAPI
-    url: openapi/cometapi-embeddings-api-openapi.yml
-  - type: Documentation
-    url: https://apidoc.cometapi.com/
-  - type: Marketing
-    url: https://www.cometapi.com/
-- aid: cometapi:cometapi-images-api
-  name: CometAPI Images API
-  description: Text-to-image and image-to-image generation.
-  humanURL: https://apidoc.cometapi.com/
-  baseURL: https://api.cometapi.com/v1
-  tags:
-  - Image
-  tags_raw:
-  - Images
-  properties:
-  - type: OpenAPI
-    url: openapi/cometapi-images-api-openapi.yml
-  - type: Documentation
-    url: https://apidoc.cometapi.com/
-  - type: Marketing
-    url: https://www.cometapi.com/
 - aid: cometapi:cometapi-models-api
   name: CometAPI Models API
   description: List of supported models routable by CometAPI.
@@ -123,34 +79,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/cometapi-models-api-openapi.yml
-  - type: Documentation
-    url: https://apidoc.cometapi.com/
-  - type: Marketing
-    url: https://www.cometapi.com/
-- aid: cometapi:cometapi-video-api
-  name: CometAPI Video API
-  description: Text-to-video, image-to-video, and video extension.
-  humanURL: https://apidoc.cometapi.com/
-  baseURL: https://api.cometapi.com/v1
-  tags:
-  - Video
-  properties:
-  - type: OpenAPI
-    url: openapi/cometapi-video-api-openapi.yml
-  - type: Documentation
-    url: https://apidoc.cometapi.com/
-  - type: Marketing
-    url: https://www.cometapi.com/
-- aid: cometapi:cometapi-chat-completions-api
-  name: CometAPI Chat Completions API
-  description: Chat completions across LLM providers.
-  humanURL: https://apidoc.cometapi.com/
-  baseURL: https://api.cometapi.com/v1
-  tags:
-  - Chat Completions
-  properties:
-  - type: OpenAPI
-    url: openapi/cometapi-chat-completions-api-openapi.yml
   - type: Documentation
     url: https://apidoc.cometapi.com/
   - type: Marketing
