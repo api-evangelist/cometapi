@@ -1,41 +1,4 @@
 edges:
-- partner_name: Portkey
-  partner: portkey
-  partner_match: router
-  channel: partner-built
-  direction: partner-built
-  type: coverage
-  relationship: system-coverage
-  evidence: https://github.com/Portkey-AI/gateway/tree/main/src/providers/cometapi
-  coverage_role:
-  - provider
-  router_signals:
-    provider:
-      models: null
-      router_ids:
-      - cometapi
-  matched_by: verified-token-table
-  detected_by: sweep-model-routing.py
-  first_seen: '2026-10-13'
-- partner_name: OpenAI
-  partner: openai
-  partner_match: domain
-  type: contract
-  channel: provider-built
-  relationship: compatible
-  direction: provider-built
-  evidence: https://github.com/api-evangelist/cometapi/blob/main/openapi/cometapi-chat-completions-api-openapi.yml#L4
-  contract_reference:
-    repo: cometapi
-    spec_file: cometapi-chat-completions-api-openapi.yml
-    property: description
-    value: OpenAI-compatible
-    note: 'cometapi declares OpenAI compatibility: ''description: CometAPI is an OpenAI-compatible aggregator that
-      exposes a single REST surface for 500+ AI models from multiple vendors (OpenAI, Anthropic, Google,'''
-    detected_by: sweep-model-routing.py
-    detected: '2026-10-15'
-  detected_by: sweep-model-routing.py
-  first_seen: '2026-10-13'
 - partner_name: Zapier
   partner: zapier
   partner_match: aggregator
@@ -61,6 +24,43 @@ edges:
     builder: unknown (not in the directory record)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
+- partner_name: Portkey
+  partner: portkey
+  partner_match: router
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: system-coverage
+  evidence: https://github.com/Portkey-AI/gateway/tree/main/src/providers/cometapi
+  coverage_role:
+  - provider
+  router_signals:
+    provider:
+      models: null
+      router_ids:
+      - cometapi
+  matched_by: verified-token-table
+  detected_by: sweep-model-routing.py
+  first_seen: '2026-10-13'
+- partner_name: OpenAI
+  partner: openai
+  partner_match: domain
+  type: contract
+  channel: provider-built
+  relationship: compatible
+  direction: provider-built
+  evidence: https://github.com/api-evangelist/cometapi/blob/main/openapi/_superseded/2026-10-19-stale/cometapi-chat-completions-api-openapi.yml#L4
+  contract_reference:
+    repo: cometapi
+    spec_file: cometapi-chat-completions-api-openapi.yml
+    property: description
+    value: OpenAI-compatible
+    note: 'cometapi declares OpenAI compatibility: ''description: CometAPI is an OpenAI-compatible aggregator that
+      exposes a single REST surface for 500+ AI models from multiple vendors (OpenAI, Anthropic, Google,'''
+    detected_by: sweep-model-routing.py
+    detected: '2026-10-19'
+  detected_by: sweep-model-routing.py
+  first_seen: '2026-10-13'
 generated: '2026-10-13'
 method: searched
 checked:
