@@ -227,3 +227,9 @@ components:
           - number
           - 'null'
           description: Per-second price when the model is billed by generated or processed duration. Null means per-second pricing is not listed.
+x-provenance:
+  method: harvested
+  publisher: CometAPI
+  source: https://apidoc.cometapi.com/api/openapi/overview/get-models.openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
