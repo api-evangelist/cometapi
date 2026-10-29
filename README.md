@@ -1,4 +1,4 @@
-# CometAPI (cometapi)
+# CometAPI
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,74 +66,147 @@
 
 CometAPI is an AI API aggregator that consolidates access to 500+ models from multiple providers (OpenAI, Anthropic, Google, xAI, DeepSeek, Alibaba, and more) behind a single OpenAI-compatible REST surface. It supports chat completions, embeddings, image generation, text-to-video and image-to-video, speech synthesis, and audio transcription. CometAPI positions itself as a drop-in replacement for the OpenAI SDK (changing only the base URL and key), with pay-as-you-go pricing reportedly 20-40% cheaper than direct vendor rates, sub-400ms median latency, and 99.9% service availability.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/cometapi/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/cometapi/refs/heads/main/apis.yml)
+**Areas:** Artificial Intelligence · Aggregator · Audio · Chat · Embeddings · Generative AI · Image · LLM · Multi-Model · OpenAI-Compatible · Video
 
-## Scope
+## CometAPI on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for CometAPI is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/cometapi/](https://apis.io/providers/cometapi/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- AI
-- Aggregator
-- Audio
-- Chat
-- Embeddings
-- Generative AI
-- Images
-- LLM
-- Multi-Model
-- OpenAI-Compatible
-- Video
+- [CometAPI Audio API](https://apis.io/apis/cometapi/cometapi-audio-api/) — Speech synthesis, transcription, and translation.
+- [CometAPI Embeddings API](https://apis.io/apis/cometapi/cometapi-embeddings-api/) — Vector embeddings for retrieval and similarity.
+- [CometAPI Images API](https://apis.io/apis/cometapi/cometapi-images-api/) — Text-to-image and image-to-image generation.
+- [CometAPI Models API](https://apis.io/apis/cometapi/cometapi-models-api/) — List of supported models routable by CometAPI.
+- [CometAPI Video API](https://apis.io/apis/cometapi/cometapi-video-api/) — Text-to-video, image-to-video, and video extension.
+- [CometAPI Chat Completions API](https://apis.io/apis/cometapi/cometapi-chat-completions-api/) — Chat completions across LLM providers.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### CometAPI Unified API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-OpenAI-compatible REST API exposing chat completions, embeddings, image generation, video generation, speech synthesis, and audio transcription across hundreds of upstream models. Authentication uses a bearer token, and the `model` field on each request selects the upstream provider (e.g. gpt-5.5, claude-4-7-opus, gemini-2.5-pro, deepseek-v4, sora, veo, kling, whisper).
+- [Cometapi Agentic Access](https://apis.io/agentic-access/cometapi/cometapi-agentic-access/)
 
-- **Human URL:** [https://apidoc.cometapi.com/](https://apidoc.cometapi.com/)
-- **Base URL:** `https://api.cometapi.com/v1`
+#### JSON Schema (1)
 
-#### Tags
+The data models the API reads and writes.
 
-- AI
-- Aggregator
-- Chat
-- Embeddings
-- Images
-- OpenAI-Compatible
-- Video
+- [CometAPI Chat Completion Response](https://apis.io/schemas/cometapi/cometapi-chat-completion/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://apidoc.cometapi.com/)
-- [Marketing](https://www.cometapi.com/)
-- [OpenAPI](openapi/cometapi-unified-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/cometapi-unified-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cometapi-unified-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Linked-data contexts for the provider's vocabulary.
 
-## Common Properties
+- [Cometapi Context](https://apis.io/jsonld/cometapi/cometapi-context/)
 
-- [GitHub Organization](https://github.com/CometAPI-dev)
-- [LinkedIn](https://www.linkedin.com/company/cometapi)
+#### Collections (7)
+
+Postman and Open Collection request collections.
+
+- [CometAPI Unified Audio API](https://apis.io/collections/cometapi/open-cometapi-audio-api/)
+- [CometAPI Unified Audio Chat API](https://apis.io/collections/cometapi/open-cometapi-chat-api/)
+- [CometAPI Unified Audio Embeddings API](https://apis.io/collections/cometapi/open-cometapi-embeddings-api/)
+- [CometAPI Unified Audio Images API](https://apis.io/collections/cometapi/open-cometapi-images-api/)
+- [CometAPI Unified Audio Models API](https://apis.io/collections/cometapi/open-cometapi-models-api/)
+- [CometAPI Unified API](https://apis.io/collections/cometapi/open-cometapi-unified-api/)
+- [CometAPI Unified Audio Video API](https://apis.io/collections/cometapi/open-cometapi-video-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [CometAPI — jsonschema rules](https://apis.io/rules/cometapi/cometapi-jsonschema-spectral-rules/)
+- [CometAPI API Rules](https://apis.io/rules/cometapi/cometapi-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Cometapi Authentication](https://apis.io/security/cometapi/cometapi-authentication/)
+- [Cometapi Domain Security](https://apis.io/security/cometapi/cometapi-domain-security/)
+- [Cometapi Trust Center](https://apis.io/security/cometapi/cometapi-trust-center/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Cometapi Plans Pricing](https://apis.io/plans/cometapi/cometapi-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Cometapi Rate Limits](https://apis.io/rate-limits/cometapi/cometapi-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Cometapi Finops](https://apis.io/finops/cometapi/cometapi-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.cometapi.com/)
 - [Documentation](https://apidoc.cometapi.com/)
-- [Help Center](https://apidoc.cometapi.com/help-center)
-- [Getting Started](https://apidoc.cometapi.com/how-to-use-cometapi-1792005m0)
-- [JSON-LD](json-ld/cometapi-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [JSON Schema](json-schema/cometapi-chat-completion-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Spectral Rules](rules/cometapi-rules.yml) — [Spectral](https://docs.stoplight.io/docs/spectral)
-- [L L Ms Txt](https://www.cometapi.com/llms.txt)
+- [Getting started](https://apidoc.cometapi.com/how-to-use-cometapi-1792005m0)
+- [Blog](https://www.cometapi.com/blog)
+- [GitHub](https://github.com/CometAPI-dev)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 31.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 52.8 |
+| Contract governance | 13.6 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 15.8 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 20.0** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/cometapi/](https://apis.io/providers/cometapi/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for CometAPI: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/cometapi/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
